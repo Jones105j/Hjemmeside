@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JonasSvirkaer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="neural-bg"></canvas>
+
+    <section class="om-mig">
+      <div class="om-mig-billede">
+        <img src="assets/jonas.jpg" alt="Jonas Svirkaer">
+      </div>
+      <div class="om-mig-tekst">
+        <span class="tag">// om mig</span>
+        <h1>Jonas Svirkaer</h1>
+        <p class="intro">
+          24-årig diplomingeniørstuderende i Design og Anvendelse af Kunstig Intelligens 
+          på Aalborg Universitet – med et ben i akademia og det andet i erhvervslivet.
+        </p>
+        <p>
+          Til daglig arbejder jeg som studiemedhjælper i Sparekassen Danmarks afdeling 
+          for AI & M365, hvor jeg hjælper med at implementere AI-løsninger via 
+          Microsoft-platformen. Jeg har tidligere 2 års erfaring fra kundeservice med fokus på IT-support, 
+          oplæring af kollegaer og kommunikation med datacentralen NBS (Netcompany Banking Service).
+        </p>
+        <p>
+          På studiet bygger jeg AI-løsninger i Python – og VS Code er min daglige 
+          arbejdsplads, både til eksamen og på jobbet.
+        </p>
+        <div class="fakta">
+          <div class="fakta-item">
+            <span class="fakta-label">Bopæl</span>
+            <span class="fakta-value">Aalborg</span>
+          </div>
+          <div class="fakta-item">
+            <span class="fakta-label">Studie</span>
+            <span class="fakta-value">2025 – 2029</span>
+          </div>
+          <div class="fakta-item">
+            <span class="fakta-label">Fokus</span>
+            <span class="fakta-value">AI & M365</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<script>
+  const canvas = document.getElementById('neural-bg');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let mouseActive = true;
+
+  const nodes = [];
+  const N = 120;
+
+  for (let i = 0; i < N; i++) {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
+    nodes.push({
+      x, y,
+      originX: x,
+      originY: y,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 2 + 1
+    });
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    const overSection = e.target.closest('.om-mig');
+    const section = document.querySelector('.om-mig');
+
+    if (!overSection) {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      section.style.transform = `
+        perspective(1000px)
+        rotateX(${y * -6}deg)
+        rotateY(${x * 6}deg)
+        translate(${x * 10}px, ${y * 10}px)
+      `;
+      mouseActive = true;
+    } else {
+      mouseActive = false;
+    }
+  });
+
+  document.addEventListener('mouseleave', () => {
+    const section = document.querySelector('.om-mig');
+    section.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translate(0px, 0px)';
+  });
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < N; i++) {
+      for (let j = i + 1; j < N; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 250) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(99, 179, 237, ${(1 - dist / 250) * 0.7})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (let n of nodes) {
+      const dxMouse = mouseX - n.x;
+      const dyMouse = mouseY - n.y;
+      const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+      const maxDist = 180;
+
+      if (distMouse < maxDist && mouseActive) {
+        const force = (1 - distMouse / maxDist) * 0.008;
+        n.vx += dxMouse * force;
+        n.vy += dyMouse * force;
+      }
+
+      const dxOrigin = n.originX - n.x;
+      const dyOrigin = n.originY - n.y;
+      n.vx += dxOrigin * 0.003;
+      n.vy += dyOrigin * 0.003;
+
+      const speed = Math.sqrt(n.vx * n.vx + n.vy * n.vy);
+      if (speed > 2) {
+        n.vx = (n.vx / speed) * 2;
+        n.vy = (n.vy / speed) * 2;
+      }
+
+      n.vx *= 0.95;
+      n.vy *= 0.95;
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = distMouse < maxDist && mouseActive
+        ? 'rgba(180, 220, 255, 1)'
+        : 'rgba(99, 179, 237, 1)';
+      ctx.fill();
+
+      n.x += n.vx;
+      n.y += n.vy;
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+</script>
+
+</body>
+</html>
