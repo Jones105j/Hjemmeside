@@ -385,7 +385,8 @@ p {
 
 .cirkel-container {
   position: relative;
-  width: 800px;
+  max-width: 800px;
+  width: 100%;
   height: 800px;
   margin: 0 auto;
 }
@@ -710,5 +711,139 @@ p {
   display: flex;
   justify-content: space-between;
   font-size: 0.95rem;
+}
+
+/* ── Semester mobil liste (vises kun på mobil) ── */
+.semester-mobil {
+  display: none;
+}
+
+.semester-mobil-item {
+  background: rgb(13, 15, 32);
+  border: 1px solid rgba(129, 140, 248, 0.22);
+  border-radius: 4px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.semester-mobil-item:hover {
+  border-color: rgba(129, 140, 248, 0.5);
+  background: rgba(18, 20, 44, 0.95);
+}
+
+.semester-mobil-item h3 {
+  font-size: 15px;
+  font-weight: 400;
+  color: #e2e8f0;
+  margin-top: 4px;
+}
+
+.semester-mobil-item[data-status="done"] {
+  border-color: rgba(129, 140, 248, 0.4);
+  background: rgba(16, 18, 42, 0.9);
+}
+
+.semester-mobil-item[data-status="active"] {
+  border-color: rgba(129, 140, 248, 0.6);
+  background: rgba(18, 20, 48, 0.92);
+  box-shadow: 0 0 20px rgba(129, 140, 248, 0.2);
+}
+
+/* ── Mobil layout (≤ 700px) ── */
+@media (max-width: 700px) {
+
+  h1 {
+    font-size: 38px;
+  }
+
+  /* Om mig – stak lodret */
+  .om-mig {
+    flex-direction: column;
+    gap: 36px;
+    padding: 50px 20px 80px;
+    align-items: center;
+    text-align: left;
+  }
+
+  .om-mig-billede img {
+    width: 200px;
+    height: 255px;
+  }
+
+  .kompetencer {
+    justify-content: flex-start;
+  }
+
+  /* Tidslinje – enkelt kolonne med linje til venstre */
+  .tidslinje {
+    padding: 80px 20px 100px;
+  }
+
+  .tidslinje-linje::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .tidslinje-item {
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 0;
+    row-gap: 6px;
+    align-items: start;
+  }
+
+  .tidslinje-item.venstre .tidslinje-indhold,
+  .tidslinje-item.hojre .tidslinje-indhold {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .tidslinje-item.venstre .tidslinje-punkt,
+  .tidslinje-item.hojre .tidslinje-punkt {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: center;
+    padding-top: 22px;
+  }
+
+  .tidslinje-item.venstre .tidslinje-dato {
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 0;
+    padding-top: 6px;
+  }
+
+  .tidslinje-item.hojre .tidslinje-dato {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+    padding-right: 0;
+    padding-top: 6px;
+  }
+
+  /* Kredsloeb – skjul cirkel, vis liste */
+  .kredsloeb {
+    padding: 0 20px 100px;
+  }
+
+  .kredsloeb-intro {
+    margin-bottom: 32px;
+  }
+
+  .cirkel-container {
+    display: none;
+  }
+
+  .semester-mobil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Bachelorprojekt fylder fuld bredde */
+  .semester-mobil-item:last-child {
+    grid-column: 1 / -1;
+  }
 }
 

@@ -24,13 +24,11 @@
       <p class="rolle">Diplomingeniørstuderende i AI &nbsp;·&nbsp; Aalborg Universitet</p>
 
       <p class="intro">
-        Bygger og implementerer AI-løsninger med forankring i
-        både akademia og erhvervsliv – med fokus på løsninger der skaber reel værdi.
+        Diplomingeniørstuderende i Design og Anvendelse af Kunstig Intelligens på Aalborg Universitet med forankring i både akademia og erhvervsliv.
       </p>
 
       <p>
-        Til daglig arbejder jeg som studiemedhjælper i Sparekassen Danmarks afdeling
-        for AI & M365, med implementering af AI-løsninger via Microsoft-platformen.
+        Til daglig arbejder jeg som studiemedhjælper i Sparekassen Danmarks afdeling for AI & M365, hvor jeg bidrager til udvikling og implementering af AI-løsninger i Microsoft 365-miljøet.
         Jeg har tidligere 3 års erfaring fra kundeservice med fokus på IT-support,
         oplæring af kollegaer og kommunikation med datacentralen NBS.
       </p>
@@ -189,6 +187,38 @@
           <span class="cirkel-nr">Semester 7</span>
           <h3>Bachelorprojekt</h3>
         </div>
+      </div>
+    </div>
+
+    <!-- Mobil: semester-liste (skjult på desktop) -->
+    <div class="semester-mobil">
+      <div class="semester-mobil-item" data-popup="semester-1">
+        <span class="cirkel-nr">Semester 1</span>
+        <h3>Grundlæggende AI</h3>
+      </div>
+      <div class="semester-mobil-item" data-popup="semester-2">
+        <span class="cirkel-nr">Semester 2</span>
+        <h3>Produkter med AI</h3>
+      </div>
+      <div class="semester-mobil-item" data-popup="semester-3">
+        <span class="cirkel-nr">Semester 3</span>
+        <h3>AI implementeret</h3>
+      </div>
+      <div class="semester-mobil-item" data-popup="semester-4">
+        <span class="cirkel-nr">Semester 4</span>
+        <h3>AI over tid</h3>
+      </div>
+      <div class="semester-mobil-item" data-popup="semester-5">
+        <span class="cirkel-nr">Semester 5</span>
+        <h3>AI i virksomheder</h3>
+      </div>
+      <div class="semester-mobil-item" data-popup="semester-6">
+        <span class="cirkel-nr">Semester 6</span>
+        <h3>Praktik</h3>
+      </div>
+      <div class="semester-mobil-item cirkel-final" data-popup="semester-7">
+        <span class="cirkel-nr">Semester 7</span>
+        <h3>Bachelorprojekt</h3>
       </div>
     </div>
   </section>
@@ -424,31 +454,46 @@
       const container = document.querySelector(".cirkel-container");
       if (!container) return;
 
+      const containerWidth = container.offsetWidth;
+      const scale = containerWidth / 800;
+      container.style.height = containerWidth + "px";
+
+      const centrum = container.querySelector(".cirkel-centrum");
+      if (centrum) {
+        const s = 110 * scale;
+        centrum.style.width = s + "px";
+        centrum.style.height = s + "px";
+      }
+
       const cx = 400;
       const cy = 400;
       const radius = 280;
       const items = document.querySelectorAll(".cirkel-item");
       const total = items.length;
+      const boxWidth = 160;
+      const boxHeight = 80;
 
       items.forEach((item, i) => {
         const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
         const x = cx + radius * Math.cos(angle);
         const y = cy + radius * Math.sin(angle);
 
-        const boxWidth = 160;
-        const boxHeight = 80;
+        item.style.left = (x - boxWidth / 2) * scale + "px";
+        item.style.top = (y - boxHeight / 2) * scale + "px";
+        item.style.width = boxWidth * scale + "px";
 
-        item.style.left = x - boxWidth / 2 + "px";
-        item.style.top = y - boxHeight / 2 + "px";
-        item.style.width = boxWidth + "px";
+        const boks = item.querySelector(".cirkel-boks");
+        if (boks) boks.style.width = boxWidth * scale + "px";
       });
     }
 
     placeCircle();
-    window.addEventListener("resize", placeCircle);
+    window.addEventListener("resize", () => {
+      placeCircle();
+      drawProgressArc();
+    });
 
     function updateSemesterStatus() {
-      const items = document.querySelectorAll(".cirkel-boks");
       const today = new Date();
 
       const starts = [
@@ -466,12 +511,17 @@
         if (today >= starts[i]) { currentIndex = i; break; }
       }
 
-      items.forEach((item, i) => {
-        delete item.dataset.status;
-        if (currentIndex < 0) return;
-        if (i < currentIndex) item.dataset.status = "done";
-        else if (i === currentIndex) item.dataset.status = "active";
-      });
+      function applyStatus(selector) {
+        document.querySelectorAll(selector).forEach((item, i) => {
+          delete item.dataset.status;
+          if (currentIndex < 0) return;
+          if (i < currentIndex) item.dataset.status = "done";
+          else if (i === currentIndex) item.dataset.status = "active";
+        });
+      }
+
+      applyStatus(".cirkel-boks");
+      applyStatus(".semester-mobil-item");
     }
 
     updateSemesterStatus();
