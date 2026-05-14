@@ -1,173 +1,679 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JonasSvirkaer</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JonasSvirkaer</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <canvas id="neural-bg"></canvas>
+  <canvas id="neural-bg"></canvas>
 
-    <section class="om-mig">
-      <div class="om-mig-billede">
-        <img src="assets/jonas.jpg" alt="Jonas Svirkaer">
+  <section class="om-mig" id="top">
+    <div class="om-mig-billede">
+      <img src="Assets/jonas.png" alt="Jonas Svirkær" />
+    </div>
+
+    <div class="om-mig-tekst">
+      <h1>
+        <span class="navn-for">Jonas</span>
+        <span class="navn-efter">Svirkær</span>
+      </h1>
+
+      <p class="rolle">Diplomingeniørstuderende i AI &nbsp;·&nbsp; Aalborg Universitet</p>
+
+      <p class="intro">
+        Bygger og implementerer AI-løsninger med forankring i
+        både akademia og erhvervsliv – med fokus på løsninger der skaber reel værdi.
+      </p>
+
+      <p>
+        Til daglig arbejder jeg som studiemedhjælper i Sparekassen Danmarks afdeling
+        for AI & M365, med implementering af AI-løsninger via Microsoft-platformen.
+        Jeg har tidligere 3 års erfaring fra kundeservice med fokus på IT-support,
+        oplæring af kollegaer og kommunikation med datacentralen NBS.
+      </p>
+
+      <div class="kompetencer">
+        <span class="chip">Bopæl i Aalborg</span>
+        <span class="chip">Alder 24 år</span>
+        <span class="chip">Diplomingeniør 2025 – 2029</span>
       </div>
-      <div class="om-mig-tekst">
-        <span class="tag">// om mig</span>
-        <h1>Jonas Svirkaer</h1>
-        <p class="intro">
-          24-årig diplomingeniørstuderende i Design og Anvendelse af Kunstig Intelligens 
-          på Aalborg Universitet – med et ben i akademia og det andet i erhvervslivet.
-        </p>
-        <p>
-          Til daglig arbejder jeg som studiemedhjælper i Sparekassen Danmarks afdeling 
-          for AI & M365, hvor jeg hjælper med at implementere AI-løsninger via 
-          Microsoft-platformen. Jeg har tidligere 2 års erfaring fra kundeservice med fokus på IT-support, 
-          oplæring af kollegaer og kommunikation med datacentralen NBS (Netcompany Banking Service).
-        </p>
-        <p>
-          På studiet bygger jeg AI-løsninger i Python – og VS Code er min daglige 
-          arbejdsplads, både til eksamen og på jobbet.
-        </p>
-        <div class="fakta">
-          <div class="fakta-item">
-            <span class="fakta-label">Bopæl</span>
-            <span class="fakta-value">Aalborg</span>
-          </div>
-          <div class="fakta-item">
-            <span class="fakta-label">Studie</span>
-            <span class="fakta-value">2025 – 2029</span>
-          </div>
-          <div class="fakta-item">
-            <span class="fakta-label">Fokus</span>
-            <span class="fakta-value">AI & M365</span>
-          </div>
+    </div>
+    <button class="scroll-pil" aria-label="Scroll ned" onclick="document.querySelector('.tidslinje').scrollIntoView({behavior:'smooth'})">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </section>
+
+  <section class="tidslinje">
+    <h2>Min vej hertil</h2>
+
+    <div class="tidslinje-linje">
+
+      <div class="tidslinje-item venstre">
+        <div class="tidslinje-indhold">
+          <span class="tidslinje-tag">Uddannelse</span>
+          <h3>HTX – Hjørring Tekniske Gymnasium</h3>
+          <p>Højere teknisk eksamen med fokus på teknologi og naturvidenskab.</p>
+        </div>
+        <div class="tidslinje-punkt"></div>
+        <div class="tidslinje-dato">2018 – 2021</div>
+      </div>
+
+      <div class="tidslinje-item hojre">
+        <div class="tidslinje-indhold">
+          <span class="tidslinje-tag">Erhverv</span>
+          <h3>McDonald's Hjørring</h3>
+          <p>Arbejde under pres i et tempofyldt miljø med fokus på teamwork og kundetilfredshed.</p>
+        </div>
+        <div class="tidslinje-punkt"></div>
+        <div class="tidslinje-dato">2021 – 2022</div>
+      </div>
+
+      <div class="tidslinje-item venstre">
+        <div class="tidslinje-indhold">
+          <span class="tidslinje-tag">Erhverv</span>
+          <h3>Sparekassen Danmark – Kundeservice</h3>
+          <p>IT-support, oplæring af kollegaer og kommunikation med datacentralen NBS.</p>
+        </div>
+        <div class="tidslinje-punkt"></div>
+        <div class="tidslinje-dato">2022 – 2025</div>
+      </div>
+
+      <div class="tidslinje-item hojre">
+        <div class="tidslinje-indhold">
+          <span class="tidslinje-tag">Erhverv</span>
+          <h3>Sparekassen Danmark – AI & M365</h3>
+          <p>Implementering af AI-løsninger via Microsoft-platformen som studiemedhjælper.</p>
+        </div>
+        <div class="tidslinje-punkt"></div>
+        <div class="tidslinje-dato">2025 →</div>
+      </div>
+
+      <div class="tidslinje-item venstre">
+        <div class="tidslinje-indhold">
+          <span class="tidslinje-tag">Uddannelse</span>
+          <h3>Diplomingeniør – Aalborg Universitet</h3>
+          <p>Design og Anvendelse af Kunstig Intelligens. Arbejder med AI-løsninger i Python.</p>
+        </div>
+        <div class="tidslinje-punkt"></div>
+        <div class="tidslinje-dato">2025 – 2029</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="kredsloeb">
+    <h2>Diplomingeniør i AI</h2>
+    <p class="kredsloeb-intro">
+      7 semestre der bygger oven på hinanden – fra grundlæggende teori til praksis.
+    </p>
+
+    <div class="cirkel-container">
+      <svg class="cirkel-ring-svg" viewBox="0 0 800 800" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible">
+        <defs>
+          <radialGradient id="bg-purple" cx="120" cy="400" r="480" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="rgba(100,40,180,0.18)"/>
+            <stop offset="55%" stop-color="rgba(100,40,180,0)"/>
+          </radialGradient>
+          <radialGradient id="bg-blue" cx="680" cy="360" r="480" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="rgba(29,60,200,0.18)"/>
+            <stop offset="55%" stop-color="rgba(29,60,200,0)"/>
+          </radialGradient>
+        </defs>
+        <circle cx="400" cy="400" r="280" fill="#080912"/>
+        <circle cx="400" cy="400" r="280" fill="url(#bg-purple)"/>
+        <circle cx="400" cy="400" r="280" fill="url(#bg-blue)"/>
+        <circle cx="400" cy="400" r="280" fill="none" stroke="rgba(129,140,248,0.12)" stroke-width="1"/>
+      </svg>
+
+      <div class="cirkel-centrum">
+        <span>AI</span>
+        <small>Diplomingeniør</small>
+      </div>
+
+      <div class="cirkel-item">
+        <div class="cirkel-punkt"></div>
+        <div class="cirkel-boks" data-popup="semester-1">
+          <span class="cirkel-nr">Semester 1</span>
+          <h3>Grundlæggende AI</h3>
         </div>
       </div>
-    </section>
 
-<script>
-  const canvas = document.getElementById('neural-bg');
-  const ctx = canvas.getContext('2d');
+      <div class="cirkel-item">
+        <div class="cirkel-punkt"></div>
+        <div class="cirkel-boks" data-popup="semester-2">
+          <span class="cirkel-nr">Semester 2</span>
+          <h3>Produkter med AI</h3>
+        </div>
+      </div>
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+      <div class="cirkel-item">
+        <div class="cirkel-punkt"></div>
+        <div class="cirkel-boks" data-popup="semester-3">
+          <span class="cirkel-nr">Semester 3</span>
+          <h3>AI implementeret</h3>
+        </div>
+      </div>
 
-  window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  });
+      <div class="cirkel-item">
+        <div class="cirkel-punkt"></div>
+        <div class="cirkel-boks" data-popup="semester-4">
+          <span class="cirkel-nr">Semester 4</span>
+          <h3>AI over tid</h3>
+        </div>
+      </div>
 
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let mouseActive = true;
+      <div class="cirkel-item">
+        <div class="cirkel-punkt"></div>
+        <div class="cirkel-boks" data-popup="semester-5">
+          <span class="cirkel-nr">Semester 5</span>
+          <h3>AI i virksomheder</h3>
+        </div>
+      </div>
 
-  const nodes = [];
-  const N = 120;
+      <div class="cirkel-item">
+        <div class="cirkel-punkt"></div>
+        <div class="cirkel-boks" data-popup="semester-6">
+          <span class="cirkel-nr">Semester 6</span>
+          <h3>Praktik</h3>
+        </div>
+      </div>
 
-  for (let i = 0; i < N; i++) {
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height;
-    nodes.push({
-      x, y,
-      originX: x,
-      originY: y,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      r: Math.random() * 2 + 1
-    });
-  }
+      <div class="cirkel-item">
+        <div class="cirkel-punkt"></div>
+        <div class="cirkel-boks cirkel-final" data-popup="semester-7">
+          <span class="cirkel-nr">Semester 7</span>
+          <h3>Bachelorprojekt</h3>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+  <!-- Popup -->
+  <div id="popup-overlay" class="popup-overlay" aria-hidden="true">
+    <div class="popup-box popup" role="dialog" aria-modal="true" aria-labelledby="popup-titel">
+      <div class="popup-header-bar">
+        <h2 id="popup-titel"></h2>
+        <button id="popup-luk" class="popup-luk" type="button" aria-label="Luk popup">×</button>
+      </div>
+      <div class="popup-body">
+        <div id="popup-indhold"></div>
+      </div>
+    </div>
+  </div>
 
-    const overSection = e.target.closest('.om-mig');
-    const section = document.querySelector('.om-mig');
+  <script>
+    // Canvas baggrund
+    const canvas = document.getElementById("neural-bg");
+    const ctx = canvas.getContext("2d");
 
-    if (!overSection) {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      section.style.transform = `
-        perspective(1000px)
-        rotateX(${y * -6}deg)
-        rotateY(${x * 6}deg)
-        translate(${x * 10}px, ${y * 10}px)
-      `;
-      mouseActive = true;
-    } else {
-      mouseActive = false;
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
-  });
 
-  document.addEventListener('mouseleave', () => {
-    const section = document.querySelector('.om-mig');
-    section.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translate(0px, 0px)';
-  });
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let mouseActive = true;
+    let time = 0;
+
+    // Flydende billede
+    const imgWrapper = document.querySelector(".om-mig-billede");
+    let imgAngle = 0;
+
+    function animateImage() {
+      if (imgWrapper) {
+        imgAngle += 0.0015;
+        const floatY = Math.sin(imgAngle) * 5;
+        const floatX = Math.sin(imgAngle * 0.7) * 2;
+        imgWrapper.style.transform = `translate(${floatX}px, ${floatY}px)`;
+      }
+      requestAnimationFrame(animateImage);
+    }
+    animateImage();
+
+    // Mouse tracking
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      mouseActive = !e.target.closest(".om-mig");
+    });
+
+    // Noder
+    const nodes = [];
+    const N = 120;
 
     for (let i = 0; i < N; i++) {
-      for (let j = i + 1; j < N; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 250) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(99, 179, 237, ${(1 - dist / 250) * 0.7})`;
-          ctx.lineWidth = 0.5;
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.stroke();
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+
+      nodes.push({
+        x,
+        y,
+        originX: x,
+        originY: y,
+        r: Math.random() * 2 + 1,
+        phase: Math.random() * Math.PI * 2,
+        phaseY: Math.random() * Math.PI * 2,
+        speed: Math.random() * 0.0008 + 0.0004,
+        amplitude: Math.random() * 18 + 8
+      });
+    }
+
+    // Pakker
+    const packets = [];
+    const NP = 30;
+
+    for (let i = 0; i < NP; i++) {
+      packets.push({
+        nodeA: Math.floor(Math.random() * N),
+        nodeB: Math.floor(Math.random() * N),
+        progress: Math.random(),
+        speed: Math.random() * 0.003 + 0.001,
+        size: Math.random() * 1.5 + 0.8
+      });
+    }
+
+    function draw() {
+      time += 0.001;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const n of nodes) {
+        const targetX = n.originX + Math.sin(time * n.speed * 1000 + n.phase) * n.amplitude;
+        const targetY = n.originY + Math.sin(time * n.speed * 800 + n.phaseY) * n.amplitude;
+
+        n.x += (targetX - n.x) * 0.02;
+        n.y += (targetY - n.y) * 0.02;
+
+        if (mouseActive) {
+          const dxMouse = mouseX - n.x;
+          const dyMouse = mouseY - n.y;
+          const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+          const maxDist = 180;
+
+          if (distMouse < maxDist) {
+            const force = (1 - distMouse / maxDist) * 0.008;
+            n.x += dxMouse * force;
+            n.y += dyMouse * force;
+          }
         }
       }
-    }
 
-    for (let n of nodes) {
-      const dxMouse = mouseX - n.x;
-      const dyMouse = mouseY - n.y;
-      const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-      const maxDist = 180;
+      for (let i = 0; i < N; i++) {
+        for (let j = i + 1; j < N; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-      if (distMouse < maxDist && mouseActive) {
-        const force = (1 - distMouse / maxDist) * 0.008;
-        n.vx += dxMouse * force;
-        n.vy += dyMouse * force;
+          if (dist < 250) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(129, 140, 248, ${(1 - dist / 250) * 0.7})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
       }
 
-      const dxOrigin = n.originX - n.x;
-      const dyOrigin = n.originY - n.y;
-      n.vx += dxOrigin * 0.003;
-      n.vy += dyOrigin * 0.003;
-
-      const speed = Math.sqrt(n.vx * n.vx + n.vy * n.vy);
-      if (speed > 2) {
-        n.vx = (n.vx / speed) * 2;
-        n.vy = (n.vy / speed) * 2;
+      for (const n of nodes) {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(129, 140, 248, 0.9)";
+        ctx.fill();
       }
 
-      n.vx *= 0.95;
-      n.vy *= 0.95;
+      for (const p of packets) {
+        const a = nodes[p.nodeA];
+        const b = nodes[p.nodeB];
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      ctx.fillStyle = distMouse < maxDist && mouseActive
-        ? 'rgba(180, 220, 255, 1)'
-        : 'rgba(99, 179, 237, 1)';
-      ctx.fill();
+        if (dist < 250) {
+          const px = a.x + dx * p.progress;
+          const py = a.y + dy * p.progress;
 
-      n.x += n.vx;
-      n.y += n.vy;
+          ctx.beginPath();
+          ctx.arc(px, py, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(200, 190, 255, 0.9)";
+          ctx.fill();
+
+          p.progress += p.speed;
+
+          if (p.progress > 1) {
+            p.progress = 0;
+            p.nodeA = Math.floor(Math.random() * N);
+            p.nodeB = Math.floor(Math.random() * N);
+          }
+        } else {
+          p.progress = 0;
+          p.nodeA = Math.floor(Math.random() * N);
+          p.nodeB = Math.floor(Math.random() * N);
+        }
+      }
+
+      requestAnimationFrame(draw);
     }
 
-    requestAnimationFrame(draw);
+    draw();
+
+    // Intersection observers
+    const tidslinjeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("synlig", entry.isIntersecting);
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".tidslinje-item").forEach((item) => {
+      tidslinjeObserver.observe(item);
+    });
+
+    const kredsloebObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("synlig", entry.isIntersecting);
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".cirkel-item").forEach((item) => {
+      kredsloebObserver.observe(item);
+    });
+
+    // Om mig animation
+    const omMigElementer = [
+      { el: document.querySelector(".om-mig-billede"), delay: 0 },
+      { el: document.querySelector(".om-mig-tekst h1"), delay: 150 },
+      { el: document.querySelector(".om-mig-tekst .rolle"), delay: 250 },
+      { el: document.querySelector(".om-mig-tekst .intro"), delay: 350 },
+      ...Array.from(document.querySelectorAll(".om-mig-tekst p:not(.intro):not(.rolle)")).map((el, i) => ({
+        el, delay: 450 + i * 100
+      })),
+      { el: document.querySelector(".kompetencer"), delay: 550 }
+    ];
+
+    function tjekOmMig() {
+      const section = document.querySelector(".om-mig");
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const erSynlig = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+
+      omMigElementer.forEach(({ el, delay }) => {
+        if (!el) return;
+
+        if (erSynlig) {
+          setTimeout(() => el.classList.add("synlig"), delay);
+        } else {
+          el.classList.remove("synlig");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", tjekOmMig);
+    tjekOmMig();
+
+    // Placering af cirkel-elementer
+    function placeCircle() {
+      const container = document.querySelector(".cirkel-container");
+      if (!container) return;
+
+      const cx = 400;
+      const cy = 400;
+      const radius = 280;
+      const items = document.querySelectorAll(".cirkel-item");
+      const total = items.length;
+
+      items.forEach((item, i) => {
+        const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
+        const x = cx + radius * Math.cos(angle);
+        const y = cy + radius * Math.sin(angle);
+
+        const boxWidth = 160;
+        const boxHeight = 80;
+
+        item.style.left = x - boxWidth / 2 + "px";
+        item.style.top = y - boxHeight / 2 + "px";
+        item.style.width = boxWidth + "px";
+      });
+    }
+
+    placeCircle();
+    window.addEventListener("resize", placeCircle);
+
+    function updateSemesterStatus() {
+      const items = document.querySelectorAll(".cirkel-boks");
+      const today = new Date();
+
+      const starts = [
+        new Date(2025, 8, 1),  // Semester 1: 1. sep 2025
+        new Date(2026, 1, 1),  // Semester 2: 1. feb 2026
+        new Date(2026, 8, 1),  // Semester 3: 1. sep 2026
+        new Date(2027, 1, 1),  // Semester 4: 1. feb 2027
+        new Date(2027, 8, 1),  // Semester 5: 1. sep 2027
+        new Date(2028, 1, 1),  // Semester 6: 1. feb 2028
+        new Date(2028, 8, 1),  // Semester 7: 1. sep 2028
+      ];
+
+      let currentIndex = -1;
+      for (let i = starts.length - 1; i >= 0; i--) {
+        if (today >= starts[i]) { currentIndex = i; break; }
+      }
+
+      items.forEach((item, i) => {
+        delete item.dataset.status;
+        if (currentIndex < 0) return;
+        if (i < currentIndex) item.dataset.status = "done";
+        else if (i === currentIndex) item.dataset.status = "active";
+      });
+    }
+
+    updateSemesterStatus();
+
+    function drawProgressArc() {
+      const container = document.querySelector(".cirkel-container");
+      if (!container) return;
+
+      const prev = container.querySelector(".cirkel-progress-svg");
+      if (prev) prev.remove();
+
+      const items = document.querySelectorAll(".cirkel-boks");
+      const total = items.length;
+      const cx = 400, cy = 400, r = 280;
+      const degPerItem = 360 / total;
+
+      function toXY(deg) {
+        const rad = (deg - 90) * Math.PI / 180;
+        return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
+      }
+
+      function arcPath(startDeg, endDeg) {
+        const [sx, sy] = toXY(startDeg);
+        const [ex, ey] = toXY(endDeg);
+        const large = (endDeg - startDeg) > 180 ? 1 : 0;
+        return `M ${sx.toFixed(1)} ${sy.toFixed(1)} A ${r} ${r} 0 ${large} 1 ${ex.toFixed(1)} ${ey.toFixed(1)}`;
+      }
+
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("class", "cirkel-progress-svg");
+      svg.setAttribute("viewBox", "0 0 800 800");
+      svg.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible";
+
+      const defs = document.createElementNS(ns, "defs");
+      const filter = document.createElementNS(ns, "filter");
+      filter.id = "arc-glow";
+      filter.setAttribute("x", "-50%"); filter.setAttribute("y", "-50%");
+      filter.setAttribute("width", "200%"); filter.setAttribute("height", "200%");
+      const feBlur = document.createElementNS(ns, "feGaussianBlur");
+      feBlur.setAttribute("in", "SourceGraphic");
+      feBlur.setAttribute("stdDeviation", "4");
+      feBlur.setAttribute("result", "blur");
+      const feMerge = document.createElementNS(ns, "feMerge");
+      ["blur", "SourceGraphic"].forEach(src => {
+        const node = document.createElementNS(ns, "feMergeNode");
+        node.setAttribute("in", src);
+        feMerge.appendChild(node);
+      });
+      filter.appendChild(feBlur);
+      filter.appendChild(feMerge);
+      defs.appendChild(filter);
+      svg.appendChild(defs);
+
+      items.forEach((item, i) => {
+        const status = item.dataset.status;
+        if (!status) return;
+        const path = document.createElementNS(ns, "path");
+        path.setAttribute("d", arcPath(i * degPerItem, (i + 1) * degPerItem));
+        path.setAttribute("fill", "none");
+        path.setAttribute("stroke-linecap", "round");
+        path.setAttribute("filter", "url(#arc-glow)");
+        if (status === "done") {
+          path.setAttribute("stroke", "#818cf8");
+          path.setAttribute("stroke-width", "3");
+        } else if (status === "active") {
+          path.setAttribute("stroke", "rgba(180,190,255,0.85)");
+          path.setAttribute("stroke-width", "2.5");
+          path.setAttribute("stroke-dasharray", "10 5");
+          path.setAttribute("class", "arc-aktiv");
+        }
+        svg.appendChild(path);
+      });
+
+      container.insertBefore(svg, container.querySelector(".cirkel-centrum"));
+    }
+
+    drawProgressArc();
+
+    // Popup data
+const popupData = {
+  htx: {
+    titel: "HTX – Hjørring Tekniske Gymnasium",
+    periode: "2018 – 2021",
+    indhold: `
+      <div class="popup-header">
+        <h3>Højere Teknisk Eksamen</h3>
+        <p>Studieretning: Teknologi A, Design B</p>
+      </div>
+    `
+  },
+  "semester-1": {
+    titel: "Grundlæggende kunstig intelligens",
+    periode: "Semester 1",
+    indhold: `
+      <p>På 1. semester bygges grundlaget for at arbejde med kunstig intelligens. Ligesom på alle semestre arbejdes der i grupper med medstuderende om en større, realistisk projektopgave – parallelt med kurser der giver de nødvendige evner til at nå i mål.</p>
+      <p>Det første projekt går ud på at udvikle, programmere og teste et rigtigt AI-system. Sideløbende dækkes programmering, AI-modeller og metoder til effektivt at løse store projekter.</p>
+    `
+  },
+  "semester-2": {
+    titel: "Produkter med kunstig intelligens",
+    periode: "Semester 2",
+    indhold: `
+      <p>På 2. semester udvikles endnu et komplet AI-system – denne gang med afsæt i det fundament der blev lagt i første semester. Metoderne er mere avancerede, og fokus udvides til den data der danner grundlaget for moderne AI.</p>
+      <p>Alle AI-systemer er afhængige af data, og der undervises i, hvordan man bedst indsamler og håndterer det.</p>
+    `
+  },
+  "semester-3": {
+    titel: "Kunstig intelligens implementeret",
+    periode: "Semester 3",
+    indhold: `
+      <p>Nu kigges der længere frem end blot udviklingen af kunstig intelligens. For at AI kan bruges i praksis, skal den sættes i drift – det vil sige, den skal køre på computere som almindelige brugere har adgang til, enten i skyen eller direkte på brugerens mobil.</p>
+      <p>Der undervises i cloud computing og AI-platforme, og den revolutionerende Deep Learning-algoritme introduceres. Desuden dækkes sammenhængen mellem mennesker og AI.</p>
+    `
+  },
+  "semester-4": {
+    titel: "Kunstig intelligens over tid",
+    periode: "Semester 4",
+    indhold: `
+      <p>Med erfaring i at udvikle og drifte AI rettes blikket nu mod vedligeholdelse over tid.</p>
+      <p>Hvad sker der, når verden ændrer sig og den træningsdata der lå til grund for systemet ikke længere er relevant? Hvordan gøres systemer selvlærende over tid? Og hvordan samarbejder et AI-system bedst muligt med mennesker?</p>
+    `
+  },
+  "semester-5": {
+    titel: "Kunstig intelligens i virksomheder og organisationer",
+    periode: "Semester 5",
+    indhold: `
+      <p>Mange virksomheder ønsker at bruge kunstig intelligens, men ved ikke, hvor de skal starte. På 5. semester handler det om at omsætte AI til praksis i virkelige organisationer – både i etablerede virksomheder og i startup-sammenhænge.</p>
+      <p>Uddannelsen har mange kontakter i erhvervslivet, og der er mulighed for at møde og lære af mennesker der har navigeret AI-projekter i virkeligheden – hvad der virker, og hvad der går galt.</p>
+    `
+  },
+  "semester-6": {
+    titel: "Praktik",
+    periode: "Semester 6",
+    indhold: `
+      <p>Praktikken er en obligatorisk og central del af uddannelsen. I en virksomhed afprøves det, der er lært på studiet, og der samarbejdes om konkrete AI-projekter i den virkelige verden.</p>
+      <p>Her er det ikke et universitetsprojekt – der er rigtige brugere i den anden ende, der venter på løsninger. De foregående to år giver et solidt fundament at stå på.</p>
+    `
+  },
+  "semester-7": {
+    titel: "Bachelorprojekt",
+    periode: "Semester 7",
+    indhold: `
+      <p>På afsluttende semester skrives et afgangsprojekt inden for det hjørne af AI, der har grebet mest. Der er ingen obligatoriske kurser – i stedet er der to valgfag og frit valg af projektets emne.</p>
+      <p>Her er der mulighed for at skræddersy semesteret helt efter egne interesser og afslutte uddannelsen med et projekt, der virkelig engagerer.</p>
+    `
   }
+};
 
-  draw();
-</script>
+    function aabnPopup(id) {
+      const data = popupData[id];
+      if (!data) return;
+
+      const overlay = document.getElementById("popup-overlay");
+      const titel = document.getElementById("popup-titel");
+      const indhold = document.getElementById("popup-indhold");
+
+      if (!overlay || !titel || !indhold) return;
+
+      titel.textContent = data.titel;
+      indhold.innerHTML = data.indhold;
+
+      overlay.classList.add("aktiv");
+      overlay.setAttribute("aria-hidden", "false");
+    }
+
+    function lukPopup() {
+      const overlay = document.getElementById("popup-overlay");
+      if (!overlay) return;
+
+      overlay.classList.remove("aktiv");
+      overlay.setAttribute("aria-hidden", "true");
+    }
+
+    document.querySelectorAll("[data-popup]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const id = el.dataset.popup;
+        aabnPopup(id);
+      });
+    });
+
+    const popupLuk = document.getElementById("popup-luk");
+    const popupOverlay = document.getElementById("popup-overlay");
+
+    if (popupLuk) {
+      popupLuk.addEventListener("click", lukPopup);
+    }
+
+    if (popupOverlay) {
+      popupOverlay.addEventListener("click", (e) => {
+        if (e.target === popupOverlay) {
+          lukPopup();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        lukPopup();
+      }
+    });
+  </script>
 
 </body>
 </html>
