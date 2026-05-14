@@ -833,7 +833,13 @@ p {
 
   /* Skaler tekst og padding i cirkel-bokse ned på mobil */
   .cirkel-boks {
-    padding: 8px 5px;
+    height: 50px;
+    padding: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .cirkel-nr {

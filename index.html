@@ -471,7 +471,7 @@
       const items = document.querySelectorAll(".cirkel-item");
       const total = items.length;
       const boxWidth = 160;
-      const boxHeight = 80;
+      const boxHeight = containerWidth <= 700 ? 50 / scale : 80;
 
       items.forEach((item, i) => {
         const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
